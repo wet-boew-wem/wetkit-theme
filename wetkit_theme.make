@@ -5,7 +5,11 @@ core = 7.x
 
 ; Themes
 
-projects[adaptivetheme][version] = 3.1
+projects[omega][version] = 4.x-dev
+projects[omega][type] = theme
+projects[omega][download][type] = git
+projects[omega][download][revision] = f03a578
+projects[omega][download][branch] = 7.x-4.x
 
 projects[rubik][version] = 4.x-dev
 projects[rubik][type] = theme
