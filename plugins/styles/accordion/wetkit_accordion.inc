@@ -1,10 +1,10 @@
 <?php
 /**
  * @file
- * The accordian style plugin that is part of WetKit Theme
+ * The accordian style plugin that is part of WetKit Theme.
  */
 
-// Plugin definition
+// Plugin definition.
 $plugin = array(
   'title' => t('Accordion Style'),
   'description' => t('Display panes as accordion.'),
@@ -20,20 +20,20 @@ $plugin = array(
  */
 function theme_wetkit_theme_wetkit_accordion_style_render_region($vars) {
 
-  // Include Some Basic Information
+  // Include Some Basic Information.
   $display = $vars['display'];
   $region_id = $vars['region_id'];
   $panes = $vars['panes'];
   $settings = $vars['settings'];
 
-  if (empty($display->css_id) ) {
+  if (empty($display->css_id)) {
     $region_id = 'accordion-panels-' . $region_id;
   }
   else {
     $region_id = 'accordion-' . $display->css_id;
   }
 
-  // Display the Output
+  // Display the Output.
   $output = '<div class="drulog-panels-accordion" id="' . $region_id . '">';
   foreach ($panes as $pane_id => $pane) {
     if ($pane_id != 'empty_placeholder') {
@@ -41,16 +41,16 @@ function theme_wetkit_theme_wetkit_accordion_style_render_region($vars) {
       $output .= '<div class="accordion-content ' . $region_id . '-' . $pane_id . '">' . $pane . '</div>';
     }
   }
-  $output .= '</div>' ;
+  $output .= '</div>';
 
-  // Handle the Empty Placeholder Panels IPE Needs
+  // Handle the Empty Placeholder Panels IPE Needs.
   if (!empty($panes['empty_placeholder'])) {
     $output .= $panes['empty_placeholder'];
   }
 
-  // Inject the Javascript
+  // Inject the Javascript.
   $settings_js = array(
-    'accordion' => array($region_id  => array('options' => array('header' => 'h4.accordion-title')))
+    'accordion' => array($region_id => array('options' => array('header' => 'h4.accordion-title'))),
   );
   $settings_js['accordion'][$region_id]['options'] += $settings;
   $settings_js['accordion'][$region_id]['options']['active'] = (int) $settings_js['accordion'][$region_id]['options']['active'];
@@ -58,6 +58,9 @@ function theme_wetkit_theme_wetkit_accordion_style_render_region($vars) {
   return $output;
 }
 
+/**
+ * Render the style settings form.
+ */
 function wetkit_theme_wetkit_accordion_style_settings_form($style_settings) {
   $form['active'] = array(
     '#type' => 'textfield',

@@ -4,7 +4,7 @@
  * phelan.inc
  */
 
-// Plugin definition
+// Plugin definition.
 $plugin = array(
   'title' => t('Phelan'),
   'icon' => 'phelan.png',

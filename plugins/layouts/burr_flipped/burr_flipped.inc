@@ -5,7 +5,7 @@
  */
 
 
-// Plugin definition
+// Plugin definition.
 $plugin = array(
   'title' => t('Burr Flipped'),
   'icon' => 'burr-flipped.png',
