@@ -82,8 +82,8 @@ function wetkit_theme_form_alter(&$form, &$form_state, $form_id) {
         }
       }
       // Provide default value.
-      $add_wetkit_theme['#default_value'] = theme_get_setting('wetkit_theme', $theme_name);
-      $svg_path['#default_value'] = theme_get_setting('wetkit_theme_path', $theme_name);
+      $add_wetkit_theme['#default_value'] = theme_get_setting('wetkit_theme_svg_default_logo', $theme_name);
+      $svg_path['#default_value'] = theme_get_setting('wetkit_theme_svg_logo_path', $theme_name);
 
       // If path is a public:// URI, display the relative path.
       $original_path = $svg_path['#default_value'];
@@ -109,9 +109,9 @@ function wetkit_theme_form_alter(&$form, &$form_state, $form_id) {
       $add_wetkit_theme['#weight'] = 4;
 
       // Add back to form.
-      $form['logo']['settings']['wetkit_theme'] = $add_wetkit_theme;
-      $svg_path = $form['logo']['settings']['svg']['wetkit_theme_path'] = $svg_path;
-      $svg_upload = $form['logo']['settings']['svg']['wetkit_theme_upload'] = $svg_upload;
+      $form['logo']['settings']['wetkit_theme_svg_default_logo'] = $add_wetkit_theme;
+      $svg_path = $form['logo']['settings']['svg']['wetkit_theme_svg_logo_path'] = $svg_path;
+      $svg_upload = $form['logo']['settings']['svg']['wetkit_theme_svg_logo_upload'] = $svg_upload;
 
       // Validator + Submit function.
       $form['#validate'][] = 'wetkit_theme_theme_settings_validate';
@@ -128,25 +128,25 @@ function wetkit_theme_theme_settings_validate($form, &$form_state) {
   $validators = array('file_validate_extensions' => array('svg'));
 
   // Check for a new uploaded logo.
-  $file = file_save_upload('wetkit_theme_upload', $validators);
+  $file = file_save_upload('wetkit_theme_svg_logo_upload', $validators);
   if (isset($file)) {
     // File upload was attempted.
     if ($file) {
       // Put the temporary file in form_values so we can save it on submit.
-      $form_state['values']['wetkit_theme_upload'] = $file;
+      $form_state['values']['wetkit_theme_svg_logo_upload'] = $file;
     }
     else {
       // File upload failed.
-      form_set_error('wetkit_theme_upload', t('The svg logo could not be uploaded.'));
+      form_set_error('wetkit_theme_svg_logo_upload', t('The svg logo could not be uploaded.'));
     }
   }
 
   // If the user provided a path for a logo or favicon file, make sure a file
   // exists at that path.
-  if ($form_state['values']['wetkit_theme_path']) {
-    $path = _system_theme_settings_validate_path($form_state['values']['wetkit_theme_path']);
+  if ($form_state['values']['wetkit_theme_svg_logo_path']) {
+    $path = _system_theme_settings_validate_path($form_state['values']['wetkit_theme_svg_logo_path']);
     if (!$path) {
-      form_set_error('wetkit_theme_path', t('The custom svg logo path is invalid.'));
+      form_set_error('wetkit_theme_svg_logo_path', t('The custom svg logo path is invalid.'));
     }
   }
 }
@@ -159,17 +159,17 @@ function wetkit_theme_theme_settings_submit($form, &$form_state) {
 
   // If the user uploaded a new logo or favicon, save it to a permanent location
   // and use it in place of the default theme-provided file.
-  if ($file = $values['wetkit_theme_upload']) {
-    unset($values['wetkit_theme_upload']);
+  if ($file = $values['wetkit_theme_svg_logo_upload']) {
+    unset($values['wetkit_theme_svg_logo_upload']);
     $filename = file_unmanaged_copy($file->uri);
-    $values['wetkit_theme'] = 1;
-    $values['wetkit_theme_path'] = $filename;
+    $values['wetkit_theme_svg_default_logo'] = 1;
+    $values['wetkit_theme_svg_logo_path'] = $filename;
   }
 
   // If the user entered a path relative to the system files directory for
   // a logo, store a public:// URI so the theme system can handle it.
-  if (!empty($values['wetkit_theme_path'])) {
-    $values['wetkit_theme_path'] = _system_theme_settings_validate_path($values['wetkit_theme_path']);
+  if (!empty($values['wetkit_theme_svg_logo_path'])) {
+    $values['wetkit_theme_svg_logo_path'] = _system_theme_settings_validate_path($values['wetkit_theme_svg_logo_path']);
   }
 
   // Load current theme settings to add svg settings.
@@ -190,8 +190,8 @@ function wetkit_theme_theme_settings_submit($form, &$form_state) {
   );
 
   // Add svg settings.
-  $theme_settings['wetkit_theme'] = $values['wetkit_theme'];
-  $theme_settings['wetkit_theme_path'] = $values['wetkit_theme_path'];
+  $theme_settings['wetkit_theme_svg_default_logo'] = $values['wetkit_theme_svg_default_logo'];
+  $theme_settings['wetkit_theme_svg_logo_path'] = $values['wetkit_theme_svg_logo_path'];
 
   // Save theme settings an clear cache.
   variable_set($key, $theme_settings);
@@ -202,8 +202,8 @@ function wetkit_theme_theme_settings_submit($form, &$form_state) {
  * Override or insert variables into the page template.
  */
 function wetkit_theme_process_page(&$variables) {
-  if (theme_get_setting('default_logo') == 0) {
-    $svg_path = theme_get_setting('wetkit_theme_path');
-    $variables['logo_svg'] = file_create_url($svg_path);
-  }
+  //if (theme_get_setting('default_logo') == 0) {
+  //  $svg_path = theme_get_setting('wetkit_theme_path');
+  //  $variables['logo_svg'] = file_create_url($svg_path);
+  //}
 }
