@@ -197,13 +197,3 @@ function wetkit_theme_theme_settings_submit($form, &$form_state) {
   variable_set($key, $theme_settings);
   cache_clear_all();
 }
-
-/**
- * Override or insert variables into the page template.
- */
-function wetkit_theme_process_page(&$variables) {
-  //if (theme_get_setting('default_logo') == 0) {
-  //  $svg_path = theme_get_setting('wetkit_theme_path');
-  //  $variables['logo_svg'] = file_create_url($svg_path);
-  //}
-}

@@ -1,6 +1,6 @@
 WetKit Theme
 ============
-Helps with overall theming for Drupal WEM.
+Helps with overall theming for Drupal WxT.
 
 Key Features
 * Includes 31 responsive and cross browser Panel layouts
