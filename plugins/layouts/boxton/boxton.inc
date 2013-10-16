@@ -9,7 +9,7 @@
 $plugin = array(
   'title' => t('Boxton'),
   'icon' => 'boxton.png',
-  'category' => t('WetKit Layouts (BackEnd Only)'),
+  'category' => t('Layouts BackEnd'),
   'theme' => 'boxton',
   'regions' => array(
     'contentmain' => t('Content'),

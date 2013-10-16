@@ -9,7 +9,7 @@
 $plugin = array(
   'title' => t('Burr'),
   'icon' => 'burr.png',
-  'category' => t('WetKit Layouts (BackEnd Only)'),
+  'category' => t('Layouts BackEnd'),
   'theme' => 'burr',
   'css' => 'burr.css',
   'regions' => array(

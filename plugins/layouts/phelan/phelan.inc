@@ -8,7 +8,7 @@
 $plugin = array(
   'title' => t('Phelan'),
   'icon' => 'phelan.png',
-  'category' => t('WetKit Layouts (BackEnd Only)'),
+  'category' => t('Layouts BackEnd'),
   'theme' => 'phelan',
   'css' => 'phelan.css',
   'regions' => array(

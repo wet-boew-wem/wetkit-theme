@@ -9,7 +9,7 @@
 $plugin = array(
   'title' => t('Sutro'),
   'icon' => 'sutro.png',
-  'category' => t('WetKit Layouts (BackEnd Only)'),
+  'category' => t('Layouts BackEnd'),
   'theme' => 'sutro',
   'css' => 'sutro.css',
   'regions' => array(

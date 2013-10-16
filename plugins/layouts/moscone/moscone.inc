@@ -9,7 +9,7 @@
 $plugin = array(
   'title' => t('Moscone'),
   'icon' => 'moscone.png',
-  'category' => t('WetKit Layouts (BackEnd Only)'),
+  'category' => t('Layouts BackEnd'),
   'theme' => 'moscone',
   'css' => 'moscone.css',
   'regions' => array(
