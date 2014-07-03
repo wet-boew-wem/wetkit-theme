@@ -4,6 +4,7 @@
  * wetkit_theme.module
  */
 
+include_once 'wetkit_theme.features.inc';
 
 /**
  * Implements hook_init().

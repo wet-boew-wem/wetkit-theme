@@ -33,9 +33,6 @@ function wetkit_theme_selection_form($form, &$form_state) {
       'block_test_theme',
       'stark',
       'seven',
-      'adaptivetheme_admin',
-      'adaptivetheme',
-      'adaptivetheme_subtheme',
       'garland',
       'ohm',
       'omega',
@@ -43,7 +40,6 @@ function wetkit_theme_selection_form($form, &$form_state) {
       'bartik',
       'responsive_bartik',
       'tao',
-      'wetkit_adaptivetheme_settings',
       'wetkit_ember',
       'wetkit_rubik',
       'ember',
@@ -60,7 +56,7 @@ function wetkit_theme_selection_form($form, &$form_state) {
   $form['theme_wrapper']['theme'] = array(
     '#type' => 'radios',
     '#options' => $themes,
-    '#default_value' => 'wetkit_omega',
+    '#default_value' => 'wetkit_bootstrap',
   );
 
   $form['submit'] = array(
@@ -77,7 +73,7 @@ function wetkit_theme_selection_form($form, &$form_state) {
 function wetkit_theme_selection_form_submit($form, &$form_state) {
 
   // Enable and set the theme of choice.
-  $theme = isset($form_state['values']['theme']) ? $form_state['values']['theme'] : 'wetkit_omega';
+  $theme = isset($form_state['values']['theme']) ? $form_state['values']['theme'] : 'wetkit_bootstrap';
   theme_enable(array($theme));
   variable_set('theme_default', $theme);
 
