@@ -1,0 +1,5 @@
+name = WetKit Bootstrapx
+description = Extended bootstrap configuration for use with Drupal WxT.
+package = WetKit
+core = 7.x
+dependencies[] = views_bootstrap
