@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ * @param $module
+ * @param $plugin
+ * @return string
+ */
+function wetkit_bootstrapx_ctools_plugin_directory($module, $plugin) {
+  if ($module == 'panels') {
+    return 'plugins/' . $plugin;
+  }
+}
+
+/**
+ * Capture all pane titles in a static variable for use while rendering the region.
+ */
+function wetkit_bootstrapx_preprocess_panels_pane(&$vars) {
+  $pane_id = $vars['pane']->pid;
+  $pane_title = &drupal_static($pane_id . '_title');
+  $pane_title = $vars['title'];
+
+  drupal_add_js(drupal_get_path('module', 'wetkit_bootstrapx') . '/js/horizontal_tabs.js', 'file');
+  drupal_add_css(drupal_get_path('module', 'wetkit_bootstrapx') . '/css/horizontal_tabs.css', 'file');
+}

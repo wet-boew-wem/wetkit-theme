@@ -1,0 +1,7 @@
+name = WetKit Ember Extended
+description = Extend some of Ember into the front end theme so they work better in tandem.
+core = 7.x
+stylesheets[all][] = css/ember-ctools.css
+stylesheets[all][] = css/ember-media.css
+stylesheets[all][] = css/ember-modal.css
+stylesheets[all][] = css/ember-panels-ipe.css
