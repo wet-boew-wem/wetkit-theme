@@ -118,6 +118,10 @@
   color: #007ec0!important;
 }
 
+#modalContent .panels-add-content-modal a.panels-modal-add-category:first-child {
+  border-top: 1px solid #CECECA;
+}
+
 /* percent width expands catagory column for wider displays */
 #modalContent .panels-section-column-categories {
   min-width: 182px;
@@ -154,18 +158,18 @@
 }
 
 #modalContent .panels-section-column-categories .panels-categories-box {
-  border-top: 1px solid white;
+  border-top: none;
   margin-bottom: 0;
 }
 
-/*#modalContent .panels-section-column-categories .content-type-button div a:before{
+#modalContent .panels-section-column-categories .content-type-button div a:before{
 content: "\2295";
 font-size: 2em;
 top: .1em;
 color: #999999;
 position: relative;
 margin-right: .1em;
-}*/
+}
 
 #modalContent .panels-section-column-categories .content-type-button div:active {
   outline: none;
@@ -186,7 +190,7 @@ margin-right: .1em;
 #modalContent .panels-section-column-categories .content-type-button img {
   border: none;
   padding-top: 7px;
-  /*  display:none; */
+  display:none;
   margin-left:5px;
   margin-right:5px;
 }
@@ -246,9 +250,11 @@ margin-right: .1em;
   width: 100%;
 }
 
+#modal-content .panel-heading {
+  position: initial;
+}
+
 #modal-content fieldset legend {
-  background-color: #303030;
-  border-bottom: none;
   color: #3b3b3b;
   display: block;
   height: 2em;
@@ -258,7 +264,7 @@ margin-right: .1em;
   position: absolute;
   padding-right:2px;
   text-indent: 10px;
-  top: -12px;
+  top: -8px;
   width: 100%;
   -moz-border-radius-topleft: 2px;
   -webkit-border-top-left-radius: 2px;
@@ -278,6 +284,8 @@ margin-right: .1em;
   font: bold 12px/1.5em "Helvetica-Neue", helvetica, "Segoe UI", segoe, "Ubuntu", "Droid Sans", "Arial", sans-serif;
   background: #333;
   color: #cccccc;
+  background: none;
+  color: #2fa6e5;
 }
 
 #modal-content fieldset.collapsed legend {
@@ -298,7 +306,7 @@ margin-right: .1em;
 
 #modal-content .fieldset-wrapper {
   padding: 0 10px;
-  margin-top: 2.25em;
+  margin-top: 4.25em;
 }
 
 #modal-content .widget-preview .fieldset-wrapper {
@@ -380,10 +388,10 @@ margin-right: .1em;
 #modal-content .panels-categories-description {
   overflow: visible;
   border: 1px solid #CECECA;
+  border-left: none;
   border-right: none;
   height: 100%;
   margin: 0;
-  margin-top: 1px;
   overflow-y: auto;
   border-bottom:none;
 }
