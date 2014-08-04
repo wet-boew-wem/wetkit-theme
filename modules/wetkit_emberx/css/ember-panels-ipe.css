@@ -413,9 +413,6 @@ div.panels-ipe-control button.panels-ipe-save:hover {
 div.panels-ipe-pseudobutton-container:active,
 div.panels-ipe-control .form-submit:active {
   background: #555;
-  color: #fff;
-)
-
   color: #CCC;
 }
 
