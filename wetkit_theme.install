@@ -22,7 +22,7 @@ function wetkit_theme_uninstall() {
  * Set module weight to -1.
  */
 function wetkit_theme_install() {
-  // Ensure wetkit_breadcrumbs runs after path_breadcrumbs.
+  // Increase weight of wetkit_theme.
   db_update('system')
     ->fields(array('weight' => -1))
     ->condition('name', 'wetkit_theme')
@@ -36,10 +36,12 @@ function wetkit_theme_install() {
 /**
  * Set module weight to -1.
  */
-function wetkit_theme_update_7101() {
-  // Ensure wetkit_breadcrumbs runs after path_breadcrumbs.
-  db_update('system')
-    ->fields(array('weight' => -1))
-    ->condition('name', 'wetkit_theme')
-    ->execute();
+function wetkit_theme_update_7201() {
+  // Enable new module for 2.x  branch.
+  $modules = array('wetkit_bootstrapx', 'wetkit_emberx');
+  foreach ($modules as $module) {
+    if (!module_exists($module)) {
+      module_enable(array($module));
+    }
+  }
 }
