@@ -319,8 +319,8 @@ div#panels-ipe-control-container {
 }
 
 .ipe-throbber {
-  background-color: #232323;
-  background-image: url("../images/loading-small.gif");
+  /*background-color: #232323;
+  background-image: url("../images/loading-small.gif");*/
   background-position: center center;
   background-repeat: no-repeat;
   -moz-border-radius: 7px;

@@ -6,6 +6,8 @@ Key Features
 ------------
 
 * Integrates Horizontal Tabs
+* Modifies some backend paths to render in frontend (Bootstrap)
+* Overrides contrib templates for Bootstrap
 
 Acknowledgements
 ----------------
