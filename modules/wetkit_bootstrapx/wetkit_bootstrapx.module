@@ -67,6 +67,7 @@ function wetkit_bootstrapx_admin_paths_alter(&$paths) {
   $paths['admin/workbench'] = FALSE;
   $paths['admin/workbench/*'] = FALSE;
   $paths['admin/reports'] = FALSE;
+  $paths['block/*'] = FALSE;
   $paths['block/*/edit'] = FALSE;
   $paths['block/*/edit/*'] = FALSE;
   $paths['media/*/edit'] = FALSE;
