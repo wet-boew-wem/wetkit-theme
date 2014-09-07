@@ -48,8 +48,13 @@ function wetkit_bootstrapx_block_view_workbench_block_alter(&$data, $block) {
  */
 function wetkit_bootstrapx_admin_paths_alter(&$paths) {
   // Render following pages in Bootstrap theme.
+  $paths['admin/appearance/*'] = FALSE;
   $paths['admin/advanced_help'] = FALSE;
   $paths['admin/advanced_help/*'] = FALSE;
+  $paths['admin/content'] = FALSE;
+  $paths['admin/content/*'] = FALSE;
+  $paths['admin/config'] = FALSE;
+  $paths['admin/config/*'] = FALSE;
   $paths['admin/dashboard'] = FALSE;
   $paths['admin/dashboard/*'] = FALSE;
   $paths['admin/people'] = FALSE;
@@ -59,6 +64,8 @@ function wetkit_bootstrapx_admin_paths_alter(&$paths) {
   $paths['admin/structure/pages/*'] = FALSE;
   $paths['admin/wetkit'] = FALSE;
   $paths['admin/wetkit/*'] = FALSE;
+  $paths['admin/workbench'] = FALSE;
+  $paths['admin/workbench/*'] = FALSE;
   $paths['admin/reports'] = FALSE;
   $paths['block/*/edit'] = FALSE;
   $paths['block/*/edit/*'] = FALSE;
