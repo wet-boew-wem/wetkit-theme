@@ -98,7 +98,7 @@ function wetkit_theme_strongarm() {
     'wetkit_bootstrap__active_tab' => 'edit-wetkit-accessibility',
     'wetkit_skip_link_text_1' => 'Skip to main content',
     'wetkit_skip_link_id_1' => 'wb-cont',
-    'wetkit_skip_link_text_2' => 'Skip to site information',
+    'wetkit_skip_link_text_2' => 'Skip to "About this site"',
     'wetkit_skip_link_id_2' => 'wb-info',
     'wetkit_render_no_link' => 0,
     'wetkit_sub_site' => '',
