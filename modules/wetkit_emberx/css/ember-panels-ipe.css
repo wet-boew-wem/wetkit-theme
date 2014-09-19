@@ -244,6 +244,18 @@ div.panels-ipe-handlebar-wrapper li.delete a:hover span {
   background-image: url(../images/555/trashcan_555.png);
 }
 
+div.panels-ipe-handlebar-wrapper li.css a span {
+  background-image: url(../images/999/css3.png);
+}
+
+div.panels-ipe-handlebar-wrapper li.css a:active  span {
+  background-image: url(../images/F05A27/css3.png);
+}
+
+div.panels-ipe-handlebar-wrapper li.css a:hover span {
+  background-image: url(../images/555/css3.png);
+}
+
 div.panels-ipe-handlebar-wrapper li a:hover,
 div.panels-ipe-dragtitle span:hover,
 div.panels-ipe-newblock a:hover,
