@@ -5,4 +5,5 @@ core = 7.x
 dependencies[] = views_bootstrap
 scripts[] = js/alert.js
 scripts[] = js/collapse.js
+scripts[] = js/tooltip.js
 scripts[] = js/vertical_tabs.js
