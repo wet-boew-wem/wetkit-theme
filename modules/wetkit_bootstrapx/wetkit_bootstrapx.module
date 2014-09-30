@@ -60,6 +60,8 @@ function wetkit_bootstrapx_admin_paths_alter(&$paths) {
   $paths['admin/people'] = FALSE;
   $paths['admin/people/*'] = FALSE;
   $paths['admin/structure'] = FALSE;
+  $paths['admin/structure/menu'] = FALSE;
+  $paths['admin/structure/menu/*'] = FALSE;
   $paths['admin/structure/pages'] = FALSE;
   $paths['admin/structure/pages/*'] = FALSE;
   $paths['admin/wetkit'] = FALSE;
@@ -67,10 +69,128 @@ function wetkit_bootstrapx_admin_paths_alter(&$paths) {
   $paths['admin/workbench'] = FALSE;
   $paths['admin/workbench/*'] = FALSE;
   $paths['admin/reports'] = FALSE;
+  $paths['admin/reports/*'] = FALSE;
   $paths['block/*'] = FALSE;
   $paths['block/*/edit'] = FALSE;
   $paths['block/*/edit/*'] = FALSE;
   $paths['media/*/edit'] = FALSE;
   $paths['media/*/edit/*'] = FALSE;
   $paths['user/*/*'] = FALSE;
+}
+
+/**
+ * Implementation of hook_theme()
+ */
+function wetkit_bootstrapx_theme() {
+  $theme = array();
+
+  $theme['panels_bootstrap_pane'] = array(
+    'variables' => array(
+      'output' => array(),
+      'pane' => array(),
+      'display' => array()
+    ),
+    'path' => drupal_get_path('module', 'wetkit_bootstrapx') . '/theme',
+    'file' => 'theme.inc',
+    'template' => 'panels-bootstrap-pane',
+  );
+
+  $theme['panels_bootstrap_region'] = array(
+    'variables' => array(
+      'output' => array(),
+      'panes' => array(),
+      'display' => array()
+    ),
+    'path' => drupal_get_path('module', 'wetkit_bootstrapx') . '/theme',
+    'file' => 'theme.inc',
+    'template' => 'panels-bootstrap-region',
+  );
+  return $theme;
+}
+
+/**
+ * Retrieves a single or all substyles.
+ * @param string $name
+ * @return array
+ */
+function wetkit_bootstrapx_bootstrap_styles_load_substyles($name = NULL) {
+  $substyles = &drupal_static(__FUNCTION__, array());
+
+  if (empty($substyles)) {
+    $substyles = module_invoke_all('wetkit_bootstrapx_substyles');
+    $default = array(
+      'description' => '',
+      // Default elements.
+      'wrapper_element' => 'div',
+      'header_element' => 'div',
+      'title_element' => 'h2',
+      'content_element' => 'div',
+      'links_element' => 'div',
+      'footer_element' => 'div',
+    );
+    foreach ($substyles as $id => &$substyle) {
+      $substyle = $default + $substyle;
+      $substyle['title'] = !empty($substyle['title']) ? $substyle['title'] : $id;
+      $substyle['name'] = !empty($substyle['name']) ? $substyle['name'] : $id;
+    }
+  }
+
+  if ($name) {
+    return $substyles[$name];
+  }
+  return $substyles;
+}
+
+/**
+ * Implements hook_panels_bootstrap_substyles.
+ */
+function wetkit_bootstrapx_wetkit_bootstrapx_substyles() {
+
+  $styles = array(
+    'panel' => array(
+      'name' => 'panel',
+      'title' => 'Panel',
+      'description' => t('Renders as bootstrap panel class.'),
+      'panes' => TRUE,
+      'regions' => TRUE,
+      'collapsible' => TRUE,
+      'modifier_classes' => TRUE,
+      'hide_classes' => TRUE,
+      'additional_classes' => TRUE,
+    ),
+    'jumbotron' => array(
+      'name' => 'jumbotron',
+      'title' => 'Jumbotron',
+      'description' => t('Renders as bootstrap jumbotron class.'),
+      'panes' => TRUE,
+      'regions' => TRUE,
+      'collapsible' => FALSE,
+      'modifier_classes' => FALSE,
+      'hide_classes' => TRUE,
+      'additional_classes' => TRUE,
+    ),
+    'well' => array(
+      'name' => 'well',
+      'title' => 'Well',
+      'description' => t('Renders as bootstrap well class.'),
+      'panes' => TRUE,
+      'regions' => TRUE,
+      'collapsible' => FALSE,
+      'modifier_classes' => FALSE,
+      'hide_classes' => TRUE,
+      'additional_classes' => TRUE,
+    ),
+    'alert' => array(
+      'name' => 'alert',
+      'title' => 'Alert',
+      'description' => t('Renders as alert class.'),
+      'panes' => TRUE,
+      'regions' => FALSE,
+      'collapsible' => FALSE,
+      'modifier_classes' => TRUE,
+      'hide_classes' => TRUE,
+      'additional_classes' => TRUE,
+    ),
+  );
+  return $styles;
 }
