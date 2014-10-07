@@ -110,5 +110,26 @@ function wetkit_theme_strongarm() {
   );
   $export['theme_wetkit_bootstrap_settings'] = $strongarm;
 
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'views_ui_custom_theme';
+  $strongarm->value = 'wetkit_ember';
+  $export['views_ui_custom_theme'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'views_ui_show_listing_filters';
+  $strongarm->value = 1;
+  $export['views_ui_show_listing_filters'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'views_ui_show_master_display';
+  $strongarm->value = 1;
+  $export['views_ui_show_master_display'] = $strongarm;
+
   return $export;
 }

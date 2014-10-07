@@ -48,6 +48,7 @@ function wetkit_bootstrapx_block_view_workbench_block_alter(&$data, $block) {
  */
 function wetkit_bootstrapx_admin_paths_alter(&$paths) {
   // Render following pages in Bootstrap theme.
+  $paths['admin/appearance'] = FALSE;
   $paths['admin/appearance/*'] = FALSE;
   $paths['admin/advanced_help'] = FALSE;
   $paths['admin/advanced_help/*'] = FALSE;
@@ -60,10 +61,19 @@ function wetkit_bootstrapx_admin_paths_alter(&$paths) {
   $paths['admin/people'] = FALSE;
   $paths['admin/people/*'] = FALSE;
   $paths['admin/structure'] = FALSE;
+  $paths['admin/structure/*'] = FALSE;
+  $paths['admin/structure/block'] = FALSE;
+  $paths['admin/structure/block/*'] = FALSE;
   $paths['admin/structure/menu'] = FALSE;
   $paths['admin/structure/menu/*'] = FALSE;
   $paths['admin/structure/pages'] = FALSE;
   $paths['admin/structure/pages/*'] = FALSE;
+  $paths['admin/structure/types'] = FALSE;
+  $paths['admin/structure/types/*'] = FALSE;
+  $paths['admin/structure/views'] = TRUE;
+  $paths['admin/structure/views/*'] = TRUE;
+  $paths['taxonomy'] = FALSE;
+  $paths['taxonomy/term/*'] = FALSE;
   $paths['admin/wetkit'] = FALSE;
   $paths['admin/wetkit/*'] = FALSE;
   $paths['admin/workbench'] = FALSE;

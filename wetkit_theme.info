@@ -13,3 +13,6 @@ stylesheets[all][] = css/wetkit-accordian.css
 features[ctools][] = strongarm:strongarm:1
 features[features_api][] = api:2
 features[variable][] = theme_wetkit_bootstrap_settings
+features[variable][] = views_ui_custom_theme
+features[variable][] = views_ui_show_listing_filters
+features[variable][] = views_ui_show_master_display
