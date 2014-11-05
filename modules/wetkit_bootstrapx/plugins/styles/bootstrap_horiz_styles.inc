@@ -17,24 +17,35 @@ function theme_wetkit_bootstrapx_bootstrap_horiz_styles_render_region($vars) {
   $display = $vars['display'];
   $panes = $vars['panes'];
   $did = $vars['display']->did;
+  $content = array();
+  $title = array();
 
   // Create the output.
+  if (drupal_is_front_page()) {
+    $title = '<h2>' . t('Search') . '</h2>';
+  }
+  $output = $title;
 
   // Start the Region Wrapper.
-  $output = '<div class="bootstrap-panels-horizontal-tabs wb-tabs margin-top-large">';
+  $output .= '<div class="bootstrap-panels-horizontal-tabs wb-tabs margin-top-large">';
 
   // Start Panes output.
   $output .= '<div class="tabpanels">';
   $i = 0;
 
-  asort($panes);
   foreach ($panes as $pane_id => $pane) {
     $pane_title = drupal_static($pane_id . '_title');
     if (empty($pane_title)) {
       $pane_title = 'This pane needs a title.';
     }
-    $output .= '<details id="details-pane-' . $pane_id . '" class="tab-pane">' . '<summary>' . $pane_title . '</summary>' . $pane . '</details>';
+    $content[$pane_title] = array('#markup' => '<details id="details-pane-' . $pane_id . '" class="tab-pane">' . '<summary>' . $pane_title . '</summary>' . $pane . '</details>');
   }
+
+  arsort($content);
+  $first = array_shift($content);
+  $content[] = $first;
+  $output .= drupal_render($content);
+
   // End Panes output.
   $output .= '</div>';
 

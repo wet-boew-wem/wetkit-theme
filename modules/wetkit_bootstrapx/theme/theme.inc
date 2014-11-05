@@ -191,7 +191,7 @@ function template_process_panels_bootstrap_region(&$variables, $hook) {
   if (!empty($variables['classes'])) {
     $variables['wrapper_attributes_array']['class'] = $variables['classes'];
   }
-  if (!empty($vars['id'])) {
+  if (!empty($variables['id'])) {
     $variables['wrapper_attributes_array']['id'] = $variables['id'];
   }
 
