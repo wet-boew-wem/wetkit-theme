@@ -7,12 +7,42 @@
 include_once 'wetkit_theme.features.inc';
 
 /**
- * Implements hook_init().
+ * Implements hook_apps_app_info().
  */
-function wetkit_theme_init() {
-  drupal_add_library('system', 'ui.widget');
-  drupal_add_library('system', 'ui.tabs');
-  drupal_add_library('system', 'ui.accordion');
+function wetkit_theme_apps_app_info() {
+  return array(
+    'configure form' => 'wetkit_theme_configure_form',
+  );
+}
+
+/**
+ * Configuration Form for WetKit Users.
+ */
+function wetkit_theme_configure_form($form, &$form_state) {
+  $form = array();
+
+  $form['wetkit_theme_admin_paths'] = array(
+    '#title' => t('Remove WxT Admin Path Cutomization for Bootstrap'),
+    '#type' => 'select',
+    '#required' => TRUE,
+    '#options' => array(
+      0 => t('Do Not Remove (default)'),
+      1 => t('Remove (use with caution)'),
+    ),
+    '#default_value' => variable_get('wetkit_theme_admin_paths', 0),
+    '#description' => t('This setting will remove the customizations WxT utilizes to enforce Bootstrap theme rendering on admin paths. This option is heavily discouraged as WxT 2.x has been designed with the goal of leveraging a single theme for both the front / back end. The benefits of this approach is an improved user experience and validated WxT markup on the majority of page rendering. Only use this option if your requirements force having a separate administrative back end.'),
+  );
+
+  return system_settings_form($form);
+}
+
+/**
+ * Implements hook_page_build().
+ */
+function wetkit_theme_page_build() {
+  //drupal_add_library('system', 'ui.widget');
+  //drupal_add_library('system', 'ui.tabs');
+  //drupal_add_library('system', 'ui.accordion');
 }
 
 /**

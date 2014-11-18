@@ -47,47 +47,66 @@ function wetkit_bootstrapx_block_view_workbench_block_alter(&$data, $block) {
  * Implements hook_admin_paths_alter().
  */
 function wetkit_bootstrapx_admin_paths_alter(&$paths) {
-  // Render following pages in Bootstrap theme.
-  $paths['admin'] = FALSE;
-  $paths['admin/*'] = FALSE;
-  $paths['admin/appearance'] = FALSE;
-  $paths['admin/appearance/*'] = FALSE;
-  $paths['admin/advanced_help'] = FALSE;
-  $paths['admin/advanced_help/*'] = FALSE;
-  $paths['admin/content'] = FALSE;
-  $paths['admin/content/*'] = FALSE;
-  $paths['admin/config'] = FALSE;
-  $paths['admin/config/*'] = FALSE;
-  $paths['admin/dashboard'] = FALSE;
-  $paths['admin/dashboard/*'] = FALSE;
-  $paths['admin/people'] = FALSE;
-  $paths['admin/people/*'] = FALSE;
-  $paths['admin/structure'] = FALSE;
-  $paths['admin/structure/*'] = FALSE;
-  $paths['admin/structure/block'] = FALSE;
-  $paths['admin/structure/block/*'] = FALSE;
-  $paths['admin/structure/menu'] = FALSE;
-  $paths['admin/structure/menu/*'] = FALSE;
-  $paths['admin/structure/pages'] = FALSE;
-  $paths['admin/structure/pages/*'] = FALSE;
-  $paths['admin/structure/types'] = FALSE;
-  $paths['admin/structure/types/*'] = FALSE;
-  $paths['admin/structure/views'] = TRUE;
-  $paths['admin/structure/views/*'] = TRUE;
-  $paths['taxonomy'] = FALSE;
-  $paths['taxonomy/term/*'] = FALSE;
-  $paths['admin/wetkit'] = FALSE;
-  $paths['admin/wetkit/*'] = FALSE;
-  $paths['admin/workbench'] = FALSE;
-  $paths['admin/workbench/*'] = FALSE;
-  $paths['admin/reports'] = FALSE;
-  $paths['admin/reports/*'] = FALSE;
-  $paths['block/*'] = FALSE;
-  $paths['block/*/edit'] = FALSE;
-  $paths['block/*/edit/*'] = FALSE;
-  $paths['media/*/edit'] = FALSE;
-  $paths['media/*/edit/*'] = FALSE;
-  $paths['user/*/*'] = FALSE;
+  // Render following admin pages in Bootstrap.
+  if (!variable_get('wetkit_theme_admin_paths', FALSE)) {
+    $paths['admin'] = FALSE;
+    $paths['admin/*'] = FALSE;
+    $paths['admin/appearance'] = FALSE;
+    $paths['admin/appearance/*'] = FALSE;
+    $paths['admin/advanced_help'] = FALSE;
+    $paths['admin/advanced_help/*'] = FALSE;
+    $paths['admin/content'] = FALSE;
+    $paths['admin/content/*'] = FALSE;
+    $paths['admin/config'] = FALSE;
+    $paths['admin/config/*'] = FALSE;
+    $paths['admin/dashboard'] = FALSE;
+    $paths['admin/dashboard/*'] = FALSE;
+    $paths['admin/people'] = FALSE;
+    $paths['admin/people/*'] = FALSE;
+    $paths['admin/structure'] = FALSE;
+    $paths['admin/structure/*'] = FALSE;
+    $paths['admin/wetkit'] = FALSE;
+    $paths['admin/wetkit/*'] = FALSE;
+    $paths['admin/workbench'] = FALSE;
+    $paths['admin/workbench/*'] = FALSE;
+    $paths['admin/reports'] = FALSE;
+    $paths['admin/reports/*'] = FALSE;
+    $paths['block/*'] = FALSE;
+    $paths['block/*/edit'] = FALSE;
+    $paths['block/*/edit/*'] = FALSE;
+    $paths['media/*/edit'] = FALSE;
+    $paths['media/*/edit/*'] = FALSE;
+    $paths['taxonomy'] = FALSE;
+    $paths['taxonomy/term/*'] = FALSE;
+    $paths['user/*/*'] = FALSE;
+
+    // Views currently does not style well in Bootstrap.
+    $paths['admin/structure/views'] = FALSE;
+    $paths['admin/structure/views/*'] = TRUE;
+  }
+}
+
+/**
+ * Implements hook_custom_theme().
+ */
+function wetkit_bootstrapx_custom_theme() {
+    // Render following views admin pages in Bootstrap.
+  if (!variable_get('wetkit_theme_admin_paths', FALSE)) {
+    $theme = variable_get('views_ui_custom_theme', '_default');
+
+    if ($theme != '_default') {
+      $available = list_themes();
+
+      if (isset($available[$theme]) && $available[$theme]->status && preg_match('/^admin\/structure\/views\/view/', current_path())) {
+        return $theme;
+      }
+
+      // Views UI itself currently can't support Bootstrap.
+      if (isset($available[$theme]) && $available[$theme]->status && preg_match('/^admin\/structure\/views/', current_path())) {
+        return 'wetkit_bootstrap';
+      }
+    }
+  }
 }
 
 /**
