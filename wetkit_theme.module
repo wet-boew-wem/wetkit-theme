@@ -40,9 +40,9 @@ function wetkit_theme_configure_form($form, &$form_state) {
  * Implements hook_page_build().
  */
 function wetkit_theme_page_build() {
-  //drupal_add_library('system', 'ui.widget');
-  //drupal_add_library('system', 'ui.tabs');
-  //drupal_add_library('system', 'ui.accordion');
+  drupal_add_library('system', 'ui.widget');
+  drupal_add_library('system', 'ui.tabs');
+  drupal_add_library('system', 'ui.accordion');
 }
 
 /**
