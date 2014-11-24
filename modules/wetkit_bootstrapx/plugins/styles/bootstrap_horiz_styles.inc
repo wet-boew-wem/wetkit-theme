@@ -36,7 +36,7 @@ function theme_wetkit_bootstrapx_bootstrap_horiz_styles_render_region($vars) {
   foreach ($panes as $pane_id => $pane) {
     $pane_title = drupal_static($pane_id . '_title');
     if (empty($pane_title)) {
-      $pane_title = 'This pane needs a title.';
+      $pane_title = t('This pane needs a title.)';
     }
     $content[$pane_title] = array('#markup' => '<details id="details-pane-' . $pane_id . '" class="tab-pane">' . '<summary>' . $pane_title . '</summary>' . $pane . '</details>');
   }
