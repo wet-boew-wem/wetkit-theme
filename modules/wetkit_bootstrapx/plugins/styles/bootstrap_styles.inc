@@ -240,9 +240,9 @@ function wetkit_bootstrapx_bootstrap_styles_settings_form($settings, $display, $
     }
     else {
       $additional_options = array(
-        'pull-left' => 'Float Left',
-        'pull-right' => 'Float Right',
-        'clearfix' => 'Clearfix',
+        'pull-left' => t('Float Left'),
+        'pull-right' => t('Float Right'),
+        'clearfix' => t('Clearfix'),
       );
     }
 
