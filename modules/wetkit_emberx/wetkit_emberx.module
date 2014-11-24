@@ -10,11 +10,11 @@
 function wetkit_emberx_menu() {
   $items = array();
   $items['admin/config/user-interface/ember-support'] = array(
-    'title' => 'Ember Support',
+    'title' => t('Ember Support'),
     'page callback' => 'drupal_get_form',
     'page arguments' => array('wetkit_bootstrapx_admin_form'),
     'access arguments' => array('administer site configuration'),
-    'description' => 'Allows administrators to configure Ember Support.',
+    'description' => t('Allows administrators to configure Ember Support.'),
   );
   return $items;
 }
