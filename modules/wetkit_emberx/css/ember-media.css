@@ -4,6 +4,7 @@
 
 .ui-dialog.media-wrapper {
   padding: 0.6em;
+  left: 0px !important;
 }
 .ui-dialog.media-wrapper .ui-dialog-titlebar {
   background: none;
