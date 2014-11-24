@@ -65,7 +65,7 @@ function wetkit_theme_selection_form($form, &$form_state) {
 
   $form['submit'] = array(
     '#type' => 'submit',
-    '#value' => 'Choose theme',
+    '#value' => t('Choose theme')
   );
 
   return $form;
