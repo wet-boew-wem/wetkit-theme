@@ -226,8 +226,8 @@ margin-right: .1em;
 }
 
 #modal-content fieldset.widget-preview {
-  margin-top: 3em;
-  margin-bottom: 4em;
+  margin-top: 2em;
+  margin-bottom: 2em;
   -webkitborder-top-right-radius: 0;
   -moz-border-topright-radius: 0;
   border-top-right-radius: 0;
@@ -496,3 +496,25 @@ margin-right: .1em;
   background: #2fa6e5;
   color: #fff;
 }
+
+#modalContent .panels-add-content-modal .panels-section-column-categories a.panels-modal-add-config {
+  background-color:#efefef;
+  font: bold 11px/30px "Helvetica-Neue", helvetica, "Segoe UI", segoe, "Ubuntu", "Droid Sans", "Arial", sans-serif;
+  color: #2fa6e5!important;
+  text-decoration: none;
+}
+
+#modalContent .panels-add-content-modal .panels-section-column-categories a.panels-modal-add-config span {
+  margin-left: 20px;
+}
+
+.panels-section-columns .inside { margin-top: 1.5em; }
+.content-wrapper { position: relative; padding: 5px 0px; }
+.content-wrapper .content-type-button { position: absolute; right: 10px; top: 50%; margin-top: -10px; opacity: 0; }
+.content-wrapper .content-type-button a { background: #999; float: left; color: white; padding: 5px 10px; }
+.content-wrapper .content-type-button a img { display: none; }
+.content-wrapper .content-type-button a span { margin: 0; padding: 0; }
+.content-wrapper .content-type-button a:hover { background: #2fa6e5; }
+.content-wrapper .fieldset-legend a { background: transparent; border: none; color: #666 !important; text-shadow: none; margin: 0; padding: 0px 50px 0px 0px; text-align: left; width: 100%; cursor: pointer; }
+.content-wrapper .fieldset-legend a:hover { color: #000 !important; }
+.content-wrapper:hover .content-type-button { opacity: 1; }
