@@ -34,10 +34,10 @@ function wetkit_theme_install() {
  */
 
 /**
- *  Enable new modules for 2.x branch.
+ *  Enable new modules for 4.x branch.
  */
-function wetkit_theme_update_7201() {
-  // Enable new module for 2.x branch.
+function wetkit_theme_update_7401() {
+  // Enable new module for 4.x branch.
   $modules = array('wetkit_bootstrapx', 'wetkit_emberx');
   foreach ($modules as $module) {
     if (!module_exists($module)) {

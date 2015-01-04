@@ -1,5 +1,5 @@
 /**
- * Panopoly Modal Magic Styles
+ * CTools Modal Magic Styles
  */
 
 @media only screen and (max-width: 480px) {
@@ -20,10 +20,6 @@ div.ctools-modal-content div.form-item-categories label {
   width: auto;
 }
 
-#panels-layout-category-Layouts {
-  margin: 3% 6%;
-}
-
 #panels-layout-category-Layouts-wrapper .panels-layouts-category,
 #panels-layout-category-Layouts-wrapper .layout-link div,
 #panels-layout-category-Layouts-BackEnd-wrapper .panels-layouts-category,
@@ -32,7 +28,7 @@ div.ctools-modal-content div.form-item-categories label {
 #panels-layout-category-Layouts-Menu-wrapper .layout-link div,
 #panels-layout-category-Layouts-Sidebar-wrapper .panels-layouts-category,
 #panels-layout-category-Layouts-Sidebar-wrapper .layout-link div  {
-  display: none;
+  /*display: none;*/
 }
 
 #panels-layout-category-Layouts-wrapper .layout-link,
@@ -40,24 +36,49 @@ div.ctools-modal-content div.form-item-categories label {
 #panels-layout-category-Layouts-Menu-wrapper .layout-link,
 #panels-layout-category-Layouts-Sidebar-wrapper .layout-link {
   float: left;
-  height: 68px;
-  padding: 1.25em;
+  height: inherit;
   text-align: center;
-  width: 68px;
+  padding: 0em;
 }
 
-#panels-layout-category-Layouts-wrapper .layout-link:hover,
-#panels-layout-category-Layouts-BackEnd-wrapper .layout-link:hover,
-#panels-layout-category-Layouts-Menu-wrapper .layout-link:hover,
-#panels-layout-category-Layouts-Sidebar-wrapper .layout-link:hover {
-  background-color: #BBB;
+#panels-layout-category-Layouts-wrapper .layout-link img,
+#panels-layout-category-Layouts-BackEnd-wrapper .layout-link img,
+#panels-layout-category-Layouts-Menu-wrapper .layout-link img,
+#panels-layout-category-Layouts-Sidebar-wrapper .layout-link img {
+  border: 1px solid #CCC;
+  padding: 0.5em;
+}
+
+#panels-layout-category-Layouts-wrapper .layout-link a,
+#panels-layout-category-Layouts-BackEnd-wrapper .layout-link a,
+#panels-layout-category-Layouts-Menu-wrapper .layout-link a,
+#panels-layout-category-Layouts-Sidebar-wrapper .layout-link a {
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #000;
+  display: block;
+}
+
+#panels-layout-category-Layouts-wrapper .layout-link a:hover,
+#panels-layout-category-Layouts-BackEnd-wrapper .layout-link a:hover,
+#panels-layout-category-Layouts-Menu-wrapper .layout-link a:hover,
+#panels-layout-category-Layouts-Sidebar-wrapper .layout-link a:hover {
+  background-color: #CCC;
+}
+
+#panels-layout-category-Layouts-wrapper .layout-link div a:hover,
+#panels-layout-category-Layouts-BackEnd-wrapper .layout-link div a:hover,
+#panels-layout-category-Layouts-Menu-wrapper .layout-link div a:hover,
+#panels-layout-category-Layouts-Sidebar-wrapper .layout-link div a:hover {
+  background: none;
 }
 
 #panels-layout-category-Layouts-wrapper .current-layout,
 #panels-layout-category-Layouts-BackEnd-wrapper .current-layout,
 #panels-layout-category-Layouts-Menu-wrapper .current-layout,
 #panels-layout-category-Layouts-Sidebar-wrapper .current-layout {
-  background-color: #DDD;
+  background-color: #CCC;
 }
 
 div.ctools-modal-content .panels-choose-layout .dependent-options {
