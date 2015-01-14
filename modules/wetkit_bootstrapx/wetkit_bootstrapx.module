@@ -101,8 +101,9 @@ function wetkit_bootstrapx_custom_theme() {
         return $theme;
       }
 
-      // Views UI itself currently can't support Bootstrap.
-      if (isset($available[$theme]) && $available[$theme]->status && preg_match('/^admin\/structure\/views/', current_path())) {
+      // Views UI itself currently can't support Bootstrap
+      // but the admin/structure/views is able to.
+      if (isset($available[$theme]) && $available[$theme]->status && preg_match('/^admin\/structure\/views$/', current_path())) {
         return 'wetkit_bootstrap';
       }
     }
