@@ -131,3 +131,18 @@ function wetkit_emberx_preprocess_panels_ipe_pane_wrapper(&$variables) {
     $variables['links'] = array_merge($links_start, $links_end);
   }
 }
+
+/**
+ * Implements hook_media_bulk_upload_edit_multiple_form_alter().
+ */
+function wetkit_emberx_media_bulk_upload_edit_multiple_form_alter(&$form) {
+  foreach (element_children($form['multiform']) as $key) {
+    // Prefix each form with a preview of the file and add additional classes
+    // for styling.
+    $form['multiform'][$key]['#prefix'] = '<div class="media-bulk-asset"><div class="media-bulk-upload-image-header">' . drupal_render($form['multiform'][$key]['preview']) . '</div>';
+    $form['multiform'][$key]['#suffix'] = '</div>';
+
+    // Remove the existing file preview.
+    $form['multiform'][$key]['preview']['#access'] = FALSE;
+  }
+}
