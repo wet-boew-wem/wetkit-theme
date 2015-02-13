@@ -486,12 +486,11 @@ span.panels-ipe-draghandle-icon {
 }
 
 #panels-dnd-main div.panel-region h2.label {
-color: #bbb!important;
-text-shadow: none!important;
+color: #494949 !important;
+text-shadow: none !important;
 text-align: center;
 font-size: 13pt;
 margin: 0 0 .5em 0;
-background: #222;
 padding-right: 16px;
 vertical-align: middle;
 min-width: 20%;
