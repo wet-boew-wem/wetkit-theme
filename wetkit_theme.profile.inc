@@ -26,7 +26,7 @@ function wetkit_theme_selection_form($form, &$form_state) {
   // Create a list of theme options, minus the admin and testing themes.
   $themes = array();
   foreach (system_rebuild_theme_data() as $theme) {
-    if (empty($theme->info['hidden']  && !in_array($theme->name, array(
+    if (empty($theme->info['hidden'])  && !in_array($theme->name, array(
       'test_theme',
       'update_test_basetheme',
       'update_test_subtheme',
