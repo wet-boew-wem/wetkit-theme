@@ -37,6 +37,10 @@ function wetkit_theme_install() {
  *  Enable new modules for 4.x branch.
  */
 function wetkit_theme_update_7401() {
+  global $theme;
+  global $base_theme_info;
+  $wetkit_base_theme = FALSE;
+
   // Enable new module for 4.x branch.
   $modules = array('wetkit_bootstrapx', 'wetkit_emberx');
   foreach ($modules as $module) {
@@ -45,9 +49,15 @@ function wetkit_theme_update_7401() {
     }
   }
 
-  // Ensure Bootstrap theme is new default.
-  $theme = variable_get('theme_default');
-  if ($theme != 'wetkit_bootstrap') {
+  // Ensure Bootstrap based theme is new default.
+  foreach ($base_theme_info as $base) {
+    if (!empty($base->name)) {
+      if ($base->name == 'wetkit_bootstrap') {
+        $wetkit_base_theme = TRUE;
+      }
+    }
+  }
+  if (($theme != 'wetkit_bootstrap') && ($wetkit_base_theme == FALSE)) {
     theme_disable(array($theme));
     theme_enable(array('wetkit_bootstrap'));
     variable_set('theme_default', 'wetkit_bootstrap');
