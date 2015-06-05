@@ -30,7 +30,7 @@ function wetkit_theme_configure_form($form, &$form_state) {
       1 => t('Remove (use with caution)'),
     ),
     '#default_value' => variable_get('wetkit_theme_admin_paths', 0),
-    '#description' => t('This setting will remove the customizations WxT utilizes to enforce Bootstrap theme rendering on admin paths. This option is heavily discouraged as WxT 2.x has been designed with the goal of leveraging a single theme for both the front / back end. The benefits of this approach is an improved user experience and validated WxT markup on the majority of page rendering. Only use this option if your requirements force having a separate administrative back end.'),
+    '#description' => t('This setting will remove the customizations WxT utilizes to enforce Bootstrap theme rendering on admin paths. This option is heavily discouraged as WxT 4.x has been designed with the goal of leveraging a single theme for both the front / back end. The benefits of this approach is an improved user experience and validated WxT markup on the majority of page rendering. Only use this option if your requirements force having a separate administrative back end.'),
   );
 
   return system_settings_form($form);
