@@ -202,7 +202,7 @@ margin-right: .1em;
 }
 
 #modal-content .option-text-aligner {
-  float: left;
+  display: inline-block;
   width: auto;
 }
 
