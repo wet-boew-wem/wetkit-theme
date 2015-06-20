@@ -18,13 +18,18 @@ function theme_wetkit_bootstrapx_bootstrap_horiz_styles_render_region($vars) {
   $panes = $vars['panes'];
   $did = $vars['display']->did;
   $content = array();
-  $title = array();
+  $output = '';
 
-  // Create the output.
-  if (drupal_is_front_page()) {
-    $title = '<h2>' . t('Search') . '</h2>';
+  // Title handling.
+   if (isset($vars['settings']['title']) && !empty($vars['settings']['title'])) {
+    $header['region_header'] = array(
+      '#prefix' => '<h2>',
+      '#suffix' => '</h2>',
+      '#markup' => $vars['settings']['title'],
+    );
   }
-  $output = $title;
+  $title = drupal_render($header);
+  $output .= isset($title) ? $title : '';
 
   // Start the Region Wrapper.
   $output .= '<div class="bootstrap-panels-horizontal-tabs wb-tabs margin-top-large">';
@@ -41,9 +46,7 @@ function theme_wetkit_bootstrapx_bootstrap_horiz_styles_render_region($vars) {
     $content[$pane_title] = array('#markup' => '<details id="details-pane-' . $pane_id . '" class="tab-pane">' . '<summary>' . $pane_title . '</summary>' . $pane . '</details>');
   }
 
-  arsort($content);
-  $first = array_shift($content);
-  $content[] = $first;
+  ksort($content);
   $output .= drupal_render($content);
 
   // End Panes output.
@@ -59,6 +62,15 @@ function theme_wetkit_bootstrapx_bootstrap_horiz_styles_render_region($vars) {
  * Settings form
  */
 function wetkit_bootstrapx_bootstrap_horiz_styles_settings_form($style_settings) {
+
+  // Region Title
+  $settings_default_value = isset($style_settings['title']) ? $style_settings['title'] : '';
+  $form['title'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Title'),
+    '#default_value' => $settings_default_value,
+    '#description' => t('The title is filtered by filter_xss, so some simple HTML is allowed.'),
+  );
   $form['help_text'] = array(
     '#markup' => t('The title of each pane will be become a tab which will toggle display of that pane.
         Ensure that you give every pane a title, otherwise you will see a message reminding you to do so.'),
