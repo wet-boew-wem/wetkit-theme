@@ -61,6 +61,9 @@ function wetkit_bootstrapx_admin_paths_alter(&$paths) {
     $paths['admin/config/*'] = FALSE;
     $paths['admin/dashboard'] = FALSE;
     $paths['admin/dashboard/*'] = FALSE;
+    $paths['admin/help'] = FALSE;
+    $paths['admin/help/*'] = FALSE;
+    $paths['admin/help/ah/*'] = FALSE;
     $paths['admin/people'] = FALSE;
     $paths['admin/people/*'] = FALSE;
     $paths['admin/structure'] = FALSE;
