@@ -510,13 +510,13 @@ margin-right: .1em;
 
 .panels-section-columns .inside { margin-top: 1.5em; }
 
-.content-wrapper { position: relative; padding: 5px 0px; }
-.content-wrapper .content-type-button { position: absolute; right: 10px; top: 50%; margin-top: -10px; }
-.content-wrapper .content-type-button a { background: #999; float: left; color: white; padding: 5px 10px; text-decoration: none; }
-.content-wrapper .content-type-button a img { display: none; }
-.content-wrapper .content-type-button a span { margin: 0; padding: 0; position: static; }
-.content-wrapper .content-type-button a:hover { background: #2fa6e5; }
-.content-wrapper .fieldset-legend a { background: transparent; border: none; color: #666 !important; text-shadow: none; margin: 0; padding: 0px 50px 0px 0px; text-align: left; width: 100%; cursor: pointer; }
-.content-wrapper .fieldset-legend a:hover { color: #000 !important; }
+.panopoly-magic-preview-link { position: relative; padding: 5px 0px; }
+.panopoly-magic-preview-link .content-type-button { position: absolute; right: 10px; top: 50%; margin-top: -10px; }
+.panopoly-magic-preview-link .content-type-button a { background: #999; float: left; color: white; padding: 5px 10px; text-decoration: none; }
+.panopoly-magic-preview-link .content-type-button a img { display: none; }
+.panopoly-magic-preview-link .content-type-button a span { margin: 0; padding: 0; position: static; }
+.panopoly-magic-preview-link .content-type-button a:hover { background: #2fa6e5; }
+.panopoly-magic-preview-link .fieldset-legend a { background: transparent; border: none; color: #666 !important; text-shadow: none; margin: 0; padding: 0px 50px 0px 0px; text-align: left; width: 100%; cursor: pointer; }
+.panopoly-magic-preview-link .fieldset-legend a:hover { color: #000 !important; }
 
 .widget-preview-title .content-type-button span { top: 0px; }
