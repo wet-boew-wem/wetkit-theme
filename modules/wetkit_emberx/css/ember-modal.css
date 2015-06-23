@@ -2,10 +2,6 @@
  * Modal stylings
  */
 
-#modal-content input.form-text {
-  max-width: 98%; /* Handle fixed width form elements in the IPE */
-}
-
 #modal-content .form-item-exposed-widget-title input,
 #modal-content .form-item-title input {
   font-size: 1.5em;
