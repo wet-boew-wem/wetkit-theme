@@ -4,12 +4,11 @@
 .ui-dialog.media-wrapper {
   padding: 0.6em;
   z-index: 9999;
+  background: none;
 }
 .ui-dialog.media-wrapper .ui-dialog-titlebar {
   background: none;
   border: none;
-  padding: 0;
-  margin-top: 0.3em;
 }
 .ui-dialog.media-wrapper #ui-dialog-title-mediaBrowser {
   display: none;
@@ -30,6 +29,10 @@
   padding-left: 0;
   text-indent: -9999px;
   float: right;
+}
+.media-wrapper .ui-dialog-titlebar button.ui-dialog-titlebar-close {
+  background: none;
+  border: none;
 }
 
 /**
@@ -54,3 +57,21 @@
   border:1px solid #aaa;
 }
 
+.ui-state-default .ui-icon-closethick {
+  background: url(../images/F05A27/x_F05A27.png) no-repeat right top;
+  width: 24px;
+  height: 24px;
+}
+
+#media-browser-page-wrapper #media-browser-tabset #branding {
+  background-color: #555555;
+  height: 114px;
+}
+
+#media-browser-page-wrapper #media-browser-tabset .media-browser-tab {
+  padding: 0em !important;
+}
+
+#media-browser-page-wrapper #media-browser-tabset #branding #media-tabs-wrapper ul.tabs.primary {
+  margin: 0em 0em !important;
+}
