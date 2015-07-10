@@ -24,7 +24,7 @@ function wetkit_theme_strongarm() {
     'toggle_favicon' => 1,
     'toggle_main_menu' => 1,
     'toggle_secondary_menu' => 1,
-    'default_logo' => 0,
+    'default_logo' => 1,
     'logo_path' => 'profiles/wetkit/libraries/wet-boew/assets/logo.png',
     'wetkit_theme_svg_logo_path' => 'profiles/wetkit/libraries/wet-boew/assets/logo.svg',
     'wetkit_theme_svg_logo_upload' => '',
@@ -110,8 +110,9 @@ function wetkit_theme_strongarm() {
     'wetkit_search_indexing_stop' => '',
     'wetkit_search_box' => '',
     'canada_search' => 0,
+    'gcweb_cdn' => 0,
     'rescan_breakpoints' => 'Scan this theme for breakpoints',
-    'jquery_update_version' => '',
+    'jquery_update_jquery_version' => '',
   );
   $export['theme_wetkit_bootstrap_settings'] = $strongarm;
 

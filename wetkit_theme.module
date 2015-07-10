@@ -83,6 +83,9 @@ function wetkit_theme_form_alter(&$form, &$form_state, $form_id) {
   switch ($form_id) {
     case 'system_theme_settings':
 
+      // Better Title.
+      $form['logo']['default_logo']['#title'] = 'Use the default logo system';
+
       // Duplicate the logo form for svg file.
       $add_wetkit_theme = $form['logo']['default_logo'];
       $svg_path = $form['logo']['settings']['logo_path'];
@@ -112,6 +115,7 @@ function wetkit_theme_form_alter(&$form, &$form_state, $form_id) {
           }
         }
       }
+
       // Provide default value.
       $add_wetkit_theme['#default_value'] = theme_get_setting('wetkit_theme_svg_default_logo', $theme_name);
       $svg_path['#default_value'] = theme_get_setting('wetkit_theme_svg_logo_path', $theme_name);
@@ -130,7 +134,7 @@ function wetkit_theme_form_alter(&$form, &$form_state, $form_id) {
         '#states' => array(
           // Hide the logo settings when using the default logo.
           'invisible' => array(
-            'input[name="wetkit_theme"]' => array('checked' => FALSE),
+            'input[name="wetkit_theme_svg_default_logo"]' => array('checked' => FALSE),
           ),
         ),
         '#weight' => 5,

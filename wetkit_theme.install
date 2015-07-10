@@ -63,3 +63,32 @@ function wetkit_theme_update_7401() {
     variable_set('theme_default', 'wetkit_bootstrap');
   }
 }
+
+/**
+ *  Fix Logo + SVG regression in theme.
+ */
+function wetkit_theme_update_7402() {
+  global $theme;
+  global $base_theme_info;
+  $wetkit_base_theme = FALSE;
+
+  foreach ($base_theme_info as $base) {
+    if (!empty($base->name)) {
+      if ($base->name == 'wetkit_bootstrap') {
+        $wetkit_base_theme = TRUE;
+      }
+    }
+  }
+
+  // Set WxT subtheme to defaults.
+  if ($wetkit_base_theme) {
+    $theme_settings = variable_get('theme_' . $theme . '_settings', array());
+    $theme_settings['toggle_logo'] = 1;
+    variable_set('theme_' . $theme . '_settings', $theme_settings);
+  }
+
+  // Set WxT basetheme to defaults.
+  $theme_settings = variable_get('theme_wetkit_bootstrap_settings', array());
+  $theme_settings['toggle_logo'] = 1;
+  variable_set('theme_wetkit_bootstrap_settings', $theme_settings);
+}
