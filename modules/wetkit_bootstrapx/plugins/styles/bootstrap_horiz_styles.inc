@@ -1,7 +1,7 @@
 <?php
 
 $plugin = array(
-  'title' => t('Horizontal Tabs'),
+  'title' => t('Tabbed Interface'),
   'description' => t('The title of every pane in this region will become a horizontal tab. Uses Bootstrap 3'),
   'render region' => 'wetkit_bootstrapx_bootstrap_horiz_styles_render_region',
   'settings form' => 'wetkit_bootstrapx_bootstrap_horiz_styles_settings_form',
