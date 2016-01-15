@@ -65,7 +65,7 @@ function wetkit_theme_strongarm() {
     'bootstrap_anchors_fix' => 0,
     'bootstrap_anchors_smooth_scrolling' => 1,
     'bootstrap_forms_has_error_value_toggle' => 1,
-    'bootstrap_popover_enabled' => 1,
+    'bootstrap_popover_enabled' => 0,
     'bootstrap_popover_animation' => 1,
     'bootstrap_popover_html' => 0,
     'bootstrap_popover_placement' => 'right',
