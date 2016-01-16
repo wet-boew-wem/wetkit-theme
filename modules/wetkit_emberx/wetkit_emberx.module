@@ -12,7 +12,7 @@ function wetkit_emberx_menu() {
   $items['admin/config/user-interface/ember-support'] = array(
     'title' => t('Ember Support'),
     'page callback' => 'drupal_get_form',
-    'page arguments' => array('wetkit_bootstrapx_admin_form'),
+    'page arguments' => array('wetkit_emberx_admin_form'),
     'access arguments' => array('administer site configuration'),
     'description' => t('Allows administrators to configure Ember Support.'),
   );
@@ -25,42 +25,42 @@ function wetkit_emberx_menu() {
 function wetkit_emberx_admin_form($form, $form_state) {
 
   // Checkbox to remove the Panels IPE css.
-  $form['wetkit_bootstrapx_panels_ipe_css'] = array(
+  $form['wetkit_emberx_panels_ipe_css'] = array(
     '#type' => 'checkbox',
     '#title' => t('Override default Panels IPE styles'),
     '#description' => t('Ember Support overrides these styles by default.'),
-    '#default_value' => variable_get('wetkit_bootstrapx_panels_ipe_css', TRUE),
+    '#default_value' => variable_get('wetkit_emberx_panels_ipe_css', TRUE),
   );
   // If Panels IPE is not enabled, disable the settings.
   if (!module_exists('panels_ipe')) {
-    $form['wetkit_bootstrapx_panels_ipe_css']['#disabled'] = TRUE;
-    variable_del('wetkit_bootstrapx_panels_ipe_css');
+    $form['wetkit_emberx_panels_ipe_css']['#disabled'] = TRUE;
+    variable_del('wetkit_emberx_panels_ipe_css');
   }
 
   // Checkbox to remove the Panels modal css.
-  $form['wetkit_bootstrapx_panels_modal_css'] = array(
+  $form['wetkit_emberx_panels_modal_css'] = array(
     '#type' => 'checkbox',
     '#title' => t('Override Panels modal styles'),
     '#description' => t('Ember Support overrides these styles by default.'),
-    '#default_value' => variable_get('wetkit_bootstrapx_panels_modal_css', TRUE),
+    '#default_value' => variable_get('wetkit_emberx_panels_modal_css', TRUE),
   );
   // If Panels is not enabled, disable the settings.
   if (!module_exists('panels')) {
-    $form['wetkit_bootstrapx_panels_modal_css']['#disabled'] = TRUE;
-    variable_del('wetkit_bootstrapx_panels_modal_css');
+    $form['wetkit_emberx_panels_modal_css']['#disabled'] = TRUE;
+    variable_del('wetkit_emberx_panels_modal_css');
   }
 
   // Checkbox to remove the Panopoly Magic css.
-  $form['wetkit_bootstrapx_panopoly_magic_css'] = array(
+  $form['wetkit_emberx_panopoly_magic_css'] = array(
       '#type' => 'checkbox',
       '#title' => t('Override Panopoly Magic styles'),
       '#description' => t('Ember Support overrides these styles by default.'),
-      '#default_value' => variable_get('wetkit_bootstrapx_panopoly_magic_css', TRUE),
+      '#default_value' => variable_get('wetkit_emberx_panopoly_magic_css', TRUE),
       );
   // If Panopoly Magic is not enabled, disable the settings.
   if (!module_exists('panopoly_magic')) {
-    $form['wetkit_bootstrapx_panopoly_magic_css']['#disabled'] = TRUE;
-    variable_del('wetkit_bootstrapx_panopoly_magic_css');
+    $form['wetkit_emberx_panopoly_magic_css']['#disabled'] = TRUE;
+    variable_del('wetkit_emberx_panopoly_magic_css');
   }
   return system_settings_form($form);
 }
@@ -73,7 +73,7 @@ function wetkit_emberx_css_alter(&$css) {
   $ember_path = drupal_get_path('module', 'wetkit_bootstrapx');
 
   // Override Panels modal styles by default.
-  if (module_exists('panels') && variable_get('wetkit_bootstrapx_panels_modal_css', TRUE) == TRUE) {
+  if (module_exists('panels') && variable_get('wetkit_emberx_panels_modal_css', TRUE) == TRUE) {
     // Do nothing. The css is set in Ember Support's .info file.
   }
   else {
@@ -83,7 +83,7 @@ function wetkit_emberx_css_alter(&$css) {
   }
 
   // Override Panels IPE styles by default. d
-  if (module_exists('panels_ipe') && variable_get('wetkit_bootstrapx_panels_ipe_css', TRUE) == TRUE) {
+  if (module_exists('panels_ipe') && variable_get('wetkit_emberx_panels_ipe_css', TRUE) == TRUE) {
     // Remove the default Panels IPE css.
     $path = drupal_get_path('module', 'panels_ipe');
     unset($css[$path . '/css/panels_ipe.css']);
@@ -94,7 +94,7 @@ function wetkit_emberx_css_alter(&$css) {
   }
 
   // Override Panopoly Magic styles by default.
-  if (module_exists('panopoly_magic') && variable_get('wetkit_bootstrapx_panopoly_magic_css', TRUE) == TRUE) {
+  if (module_exists('panopoly_magic') && variable_get('wetkit_emberx_panopoly_magic_css', TRUE) == TRUE) {
     // Remove css set by default in Panopoly Magic's .info file.
     $path = drupal_get_path('module', 'panopoly_magic');
     unset($css[$path . '/css/panopoly-magic.css']);
