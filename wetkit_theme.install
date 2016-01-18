@@ -108,21 +108,34 @@ function wetkit_theme_update_7403() {
     if ($theme_list->name == 'wetkit_bootstrap') {
       $bootstrap_themes[] = 'wetkit_bootstrap';
     }
+    if ($theme_list->name == 'wetkit_ember') {
+      $bootstrap_themes[] = 'wetkit_ember';
+    }
+    if ($theme_list->name == 'bootstrap') {
+      $bootstrap_themes[] = 'bootstrap';
+    }
   }
 
   // Set new jQuery Version.
   variable_set('jquery_update_jquery_version', '1.10');
   foreach($bootstrap_themes as $bootstrap_theme) {
+    $version = '';
+    if ($bootstrap_theme == 'wetkit_ember') {
+      $version = '1.8';
+    }
+
     // Variable Table.
     $theme_settings = variable_get('theme_' . $bootstrap_theme . '_settings', array());
-    if (isset($theme_settings['logo_path']) && ($theme_settings['logo_path'] == 'profiles/wetkit/libraries/wet-boew/assets/logo.png')) {
-      $theme_settings['logo_path'] = 'profiles/wetkit/libraries/theme-wet-boew/assets/logo.png';
+    if (!empty($theme_settings)) {
+      if (isset($theme_settings['logo_path']) && ($theme_settings['logo_path'] == 'profiles/wetkit/libraries/wet-boew/assets/logo.png')) {
+        $theme_settings['logo_path'] = 'profiles/wetkit/libraries/theme-wet-boew/assets/logo.png';
+      }
+      if (isset($theme_settings['wetkit_theme_svg_logo_path']) && ($theme_settings['wetkit_theme_svg_logo_path'] == 'profiles/wetkit/libraries/wet-boew/assets/logo.svg')) {
+        $theme_settings['wetkit_theme_svg_logo_path'] = 'profiles/wetkit/libraries/theme-wet-boew/assets/logo.svg';
+      }
+      $theme_settings['jquery_update_jquery_version'] = $version;
+      variable_set('theme_' . $bootstrap_theme . '_settings', $theme_settings);
     }
-    if (isset($theme_settings['wetkit_theme_svg_logo_path']) && ($theme_settings['wetkit_theme_svg_logo_path'] == 'profiles/wetkit/libraries/wet-boew/assets/logo.svg')) {
-      $theme_settings['wetkit_theme_svg_logo_path'] = 'profiles/wetkit/libraries/theme-wet-boew/assets/logo.svg';
-    }
-    $theme_settings['jquery_update_jquery_version'] = '';
-    variable_set('theme_' . $bootstrap_theme . '_settings', $theme_settings);
 
     // Variable Store Table.
     $languages = language_list('enabled');
@@ -136,7 +149,7 @@ function wetkit_theme_update_7403() {
         if (isset($theme_settings['wetkit_theme_svg_logo_path']) && ($theme_settings['wetkit_theme_svg_logo_path'] == 'profiles/wetkit/libraries/wet-boew/assets/logo.svg')) {
           $theme_settings['wetkit_theme_svg_logo_path'] = 'profiles/wetkit/libraries/theme-wet-boew/assets/logo.svg';
         }
-        $theme_settings['jquery_update_jquery_version'] = '';
+        $theme_settings['jquery_update_jquery_version'] = $version;
         variable_store_set($realm, $language->language, 'theme_' . $bootstrap_theme . '_settings', $theme_settings);
       }
     }
