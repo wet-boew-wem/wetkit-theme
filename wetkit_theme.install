@@ -92,3 +92,32 @@ function wetkit_theme_update_7402() {
   $theme_settings['toggle_logo'] = 1;
   variable_set('theme_wetkit_bootstrap_settings', $theme_settings);
 }
+
+/**
+ *  Fix Logo + SVG logo path in theme.
+ */
+function wetkit_theme_update_7403() {
+  global $theme;
+  global $base_theme_info;
+  $wetkit_base_theme = FALSE;
+
+  foreach ($base_theme_info as $base) {
+    if (!empty($base->name)) {
+      if ($base->name == 'wetkit_bootstrap') {
+        $wetkit_base_theme = TRUE;
+      }
+    }
+  }
+
+  if ($wetkit_base_theme || $theme == 'wetkit_bootstrap') {
+    $theme_settings = variable_get('theme_' . $theme . '_settings', array());
+    if ($theme_settings['logo_path'] == 'profiles/wetkit/libraries/wet-boew/assets/logo.png') {
+      $theme_settings['logo_path'] = 'profiles/wetkit/libraries/theme-wet-boew/assets/logo.png';
+    }
+    elseif ($theme_settings['wetkit_theme_svg_logo_path'] == 'profiles/wetkit/libraries/wet-boew/assets/logo.svg') {
+      $theme_settings['logo_path'] = 'profiles/wetkit/libraries/theme-wet-boew/assets/logo.svg';
+    }
+    $theme_settings['jquery_update_jquery_version'] = '1.10';
+    variable_set('theme_' . $theme . '_settings', $theme_settings);
+  }
+}
