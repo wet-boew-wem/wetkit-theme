@@ -107,6 +107,7 @@ function wetkit_theme_strongarm() {
     'wetkit_skip_link_id_1' => 'wb-cont',
     'wetkit_skip_link_text_2' => 'Skip to "About this site"',
     'wetkit_skip_link_id_2' => 'wb-info',
+    'wetkit_render_mb_main_link' => 0,
     'wetkit_render_no_link' => 0,
     'wetkit_sidebar_no_chevron' => 0,
     'wetkit_sub_site' => '',
