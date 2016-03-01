@@ -46,7 +46,9 @@ function theme_wetkit_bootstrapx_bootstrap_horiz_styles_render_region($vars) {
     $content[$pane_title] = array('#markup' => '<details id="details-pane-' . $pane_id . '" class="tab-pane">' . '<summary>' . $pane_title . '</summary>' . $pane . '</details>');
   }
 
-  ksort($content);
+  if (isset($vars['settings']['sort']) && !empty($vars['settings']['sort'])) {
+    ksort($content);
+  }
   $output .= drupal_render($content);
 
   // End Panes output.
@@ -70,6 +72,13 @@ function wetkit_bootstrapx_bootstrap_horiz_styles_settings_form($style_settings)
     '#title' => t('Title'),
     '#default_value' => $settings_default_value,
     '#description' => t('The title is filtered by filter_xss, so some simple HTML is allowed.'),
+  );
+  $settings_sort_value = isset($style_settings['sort']) ? $style_settings['sort'] : TRUE;
+  $form['sort'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Sort by title'),
+    '#default_value' => $settings_sort_value,
+    '#description' => t('Whether the panes should be sorted by title'),
   );
   $form['help_text'] = array(
     '#markup' => t('The title of each pane will be become a tab which will toggle display of that pane.
