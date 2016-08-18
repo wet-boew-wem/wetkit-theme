@@ -209,7 +209,7 @@ margin-right: .1em;
  * IPE a more consistent look
  * @see https://drupal.org/node/1717644
  */
-#modal-content fieldset {
+#modal-content .widget-preview {
   clear: none;
   width: auto;
   position: relative;
@@ -221,7 +221,7 @@ margin-right: .1em;
   padding: 0 0 10px;
 }
 
-#modal-content fieldset.widget-preview {
+#modal-content .widget-preview {
   margin-top: 2em;
   margin-bottom: 2em;
   -webkitborder-top-right-radius: 0;
@@ -229,12 +229,12 @@ margin-right: .1em;
   border-top-right-radius: 0;
 }
 
-#modal-content fieldset.widget-preview-single {
+#modal-content .widget-preview-single {
   margin-top: 10px;
   margin-bottom: 1em;
 }
 
-#modal-content fieldset.widget-preview-single .fieldset-wrapper {
+#modal-content .widget-preview-single .fieldset-wrapper {
   font-size: 100%;
   max-width: 100%;
   overflow-y: auto;
@@ -242,7 +242,7 @@ margin-right: .1em;
   max-height: 375px;
 }
 
-#modal-content fieldset.widget-preview-single .fieldset-wrapper .wetkit-spotlight img {
+#modal-content .widget-preview-single .fieldset-wrapper .wetkit-spotlight img {
   width: 100%;
 }
 
@@ -250,7 +250,7 @@ margin-right: .1em;
   position: initial;
 }
 
-#modal-content fieldset legend {
+#modal-content .panopoly-magic-preview-title-wrapper {
   color: #3b3b3b;
   display: block;
   height: 2em;
@@ -276,7 +276,7 @@ margin-right: .1em;
   border-top-right-radius: 0;
 }
 
-#modal-content .fieldset-legend {
+#modal-content .panopoly-magic-preview-title-inner {
   font: bold 12px/1.5em "Helvetica-Neue", helvetica, "Segoe UI", segoe, "Ubuntu", "Droid Sans", "Arial", sans-serif;
   background: #333;
   color: #cccccc;
@@ -300,12 +300,12 @@ margin-right: .1em;
   color: #000;
 }
 
-#modal-content .fieldset-wrapper {
+#modal-content .panopoly-magic-preview-inner {
   padding: 0 10px;
   margin-top: 4.25em;
 }
 
-#modal-content .widget-preview .fieldset-wrapper {
+#modal-content .widget-preview .panopoly-magic-preview-inner {
   max-width: 100%;
   overflow-y: auto;
   font-size: 75%;
@@ -313,12 +313,12 @@ margin-right: .1em;
   overflow-x: hidden;
 }
 
-#modal-content .widget-preview .fieldset-wrapper table tr.even td,
-#modal-content .widget-preview .fieldset-wrapper table tr.odd td {
+#modal-content .widget-preview .panopoly-magic-preview-inner table tr.even td,
+#modal-content .widget-preview .panopoly-magic-preview-inner table tr.odd td {
   padding: 3px 5px;
 }
 
-#modal-content .widget-preview .fieldset-wrapper h2 {
+#modal-content .widget-preview .panopoly-magic-preview-inner h2 {
   font-size: 2em;
   margin-top: .25em;
   color:#000;
@@ -341,7 +341,7 @@ margin-right: .1em;
   text-align: right;
 }
 
-#modal-content .widget-preview-title {
+#modal-content .panopoly-magic-preview-title {
   position: absolute;
   right: 0px;
   top: -23px;
@@ -349,7 +349,7 @@ margin-right: .1em;
   font: bold 11px/23px "Helvetica-Neue", helvetica, "Segoe UI", segoe, "Ubuntu", "Droid Sans", "Arial", sans-serif;
 }
 
-#modal-content .widget-preview-title .content-type-button div {
+#modal-content .panopoly-magic-preview-title .content-type-button div {
   float: none;
   left: 0;
   top: 0;
@@ -357,7 +357,7 @@ margin-right: .1em;
   padding: 0;
 }
 
-#modal-content .widget-preview-title .content-type-button div a {
+#modal-content .panopoly-magic-preview-title .content-type-button div a {
   display: block;
   font: bold 11px/23px "Helvetica-Neue", helvetica, "Segoe UI", segoe, "Ubuntu", "Droid Sans", "Arial", sans-serif;
   color: #fff;
@@ -370,12 +370,12 @@ margin-right: .1em;
   text-shadow: 0 1px 0 #1a3646;
 }
 
-#modal-content .widget-preview-title .content-type-button div a:hover {
+#modal-content .panopoly-magic-preview-title .content-type-button div a:hover {
  background: #2fa6e5;
  text-shadow: 0 1px 0 #1a3646;
 }
 
-#modal-content .widget-preview-title .content-type-button div a:active {
+#modal-content .panopoly-magic-preview-title .content-type-button div a:active {
  background: #2fa6e5;
  text-shadow: 0 1px 0 #1a3646;
 }
@@ -425,7 +425,7 @@ margin-right: .1em;
   font-size: 1em;
 }
 
-#modal-content .widget-preview-title .content-type-button img,
+#modal-content .panopoly-magic-preview-title .content-type-button img,
 #modal-content .panels-add-content-modal > .panels-modal-add-category {
   display: none;
 }
@@ -512,7 +512,6 @@ margin-right: .1em;
 .panopoly-magic-preview-link .content-type-button a img { display: none; }
 .panopoly-magic-preview-link .content-type-button a span { margin: 0; padding: 0; position: static; }
 .panopoly-magic-preview-link .content-type-button a:hover { background: #2fa6e5; }
-.panopoly-magic-preview-link .fieldset-legend a { background: transparent; border: none; color: #666 !important; text-shadow: none; margin: 0; padding: 0px 50px 0px 0px; text-align: left; width: 100%; cursor: pointer; }
-.panopoly-magic-preview-link .fieldset-legend a:hover { color: #000 !important; }
-
-.widget-preview-title .content-type-button span { top: 0px; }
+.panopoly-magic-preview-link .panopoly-magic-preview-title-inner a { background: transparent; border: none; color: #666 !important; text-shadow: none; margin: 0; padding: 0px 50px 0px 0px; text-align: left; width: 100%; cursor: pointer; }
+.panopoly-magic-preview-link .panopoly-magic-preview-title-inner a:hover { color: #000 !important; }
+.panopoly-magic-preview-title .content-type-button span { top: 0px; }
