@@ -1,5 +1,5 @@
 name = WetKit Theme
-description = Helps with the overall theming configuration.
+description = Helps with the overall theming configuration for the Drupal Web Experience Toolkit (WxT).
 core = 7.x
 package = WetKit
 dependencies[] = ctools
